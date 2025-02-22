@@ -33,11 +33,10 @@ export default function Quiz() {
   }
   const shuffledAnswer = [...QUESTIONS[activeQuestionIndex].answers]
   shuffledAnswer.sort(()=>Math.random()-0.5)
-
   return (   
     <div id="quiz">
         <div id="question">
-        <QuestionTimer timeout={10000} onTimeout={handleSkipAnswer}></QuestionTimer>
+        <QuestionTimer key={activeQuestionIndex} timeout={10000} onTimeout={handleSkipAnswer}></QuestionTimer>
         <p>{QUESTIONS[activeQuestionIndex].text}</p>
         <ul id="answers">
             {shuffledAnswer.map((answer)=>{
